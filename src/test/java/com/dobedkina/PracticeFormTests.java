@@ -50,7 +50,6 @@ public class PracticeFormTests {
         $("#city").click();
         $("#city").$(byText("Delhi")).click();
         $("#submit").click();
-        $("#submit").click();
 
     }
 }
