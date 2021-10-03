@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class PracticeFormPage extends Calendar {
-    private final String PAGE_LINK = "/automation-practice-form";
+    private final String PAGE_LINK = "https://demoqa.com/automation-practice-form";
     private final String FORM_TITLE = "Student Registration Form";
     private final String SUBMITTED_FORM_TITLE = "Thanks for submitting the form";
     public Calendar calendar = new Calendar();
