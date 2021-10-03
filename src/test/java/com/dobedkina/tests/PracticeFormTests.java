@@ -1,19 +1,11 @@
 package com.dobedkina.tests;
 
-import com.codeborne.selenide.Configuration;
 import com.dobedkina.pages.PracticeFormPage;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.dobedkina.tests.TestData.*;
 
-public class PracticeFormTests {
-
-    @BeforeAll
-    static void setUp() {
-        Configuration.startMaximized = true;
-        Configuration.baseUrl = "https://demoqa.com";
-    }
+public class PracticeFormTests extends TestBase {
 
 
     @Test
