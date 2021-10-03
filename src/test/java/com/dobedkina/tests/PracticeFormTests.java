@@ -3,7 +3,6 @@ package com.dobedkina.tests;
 import com.dobedkina.pages.PracticeFormPage;
 import org.junit.jupiter.api.Test;
 
-import static com.dobedkina.tests.TestData.*;
 
 public class PracticeFormTests extends TestBase {
 
@@ -11,25 +10,28 @@ public class PracticeFormTests extends TestBase {
     @Test
     void fillFormTest() {
         PracticeFormPage practiceFormPage = new PracticeFormPage();
+        TestData testData = new TestData();
 
         practiceFormPage.openPage();
 
-        practiceFormPage.setFirstName(firstName);
-        practiceFormPage.setLastName(lastName);
-        practiceFormPage.setEmail(email);
-        practiceFormPage.selectGender(gender);
-        practiceFormPage.setPhone(phone);
-        practiceFormPage.calendar.setDate(year, month, day);
-        practiceFormPage.setSubjects(subject1, subject2);
-        practiceFormPage.selectHobbies(hobby1, hobby2, hobby3);
-        practiceFormPage.selectPicture(picture);
-        practiceFormPage.setAddress(address);
-        practiceFormPage.selectStateAndCity(state, city);
+        practiceFormPage.setFirstName(testData.getFirstName());
+        practiceFormPage.setLastName(testData.getLastName());
+        practiceFormPage.setEmail(testData.getEmail());
+        practiceFormPage.selectGender(testData.getGender());
+        practiceFormPage.setPhone(testData.getPhone());
+        practiceFormPage.calendar.setDate(testData.getYear(), testData.getMonth(), testData.getDay());
+        practiceFormPage.setSubjects(testData.getSubject1(), testData.getSubject2());
+        practiceFormPage.selectHobbies(testData.getHobby1(), testData.getHobby2(), testData.getHobby3());
+        practiceFormPage.selectPicture(testData.getPicture());
+        practiceFormPage.setAddress(testData.getAddress());
+        practiceFormPage.selectStateAndCity(testData.getState(), testData.getCity());
         practiceFormPage.submitForm();
 
         practiceFormPage.checkIfFormIsOpened();
-        practiceFormPage.checkFormFields(firstName, lastName, email, gender, phone, day, month,
-                year, subject1, subject2, hobby1, hobby2, hobby3, picture, address, state, city);
+        practiceFormPage.checkFormFields(testData.getFirstName(), testData.getLastName(), testData.getEmail(), testData.getGender(),
+                testData.getPhone(), testData.getDay(), testData.getMonth(), testData.getYear(),
+                testData.getSubject1(), testData.getSubject2(), testData.getHobby1(), testData.getHobby2(),
+                testData.getHobby3(), testData.getPicture(), testData.getAddress(), testData.getState(), testData.getCity());
 
 
     }
