@@ -1,11 +1,13 @@
 package com.dobedkina.tests;
 
 import com.dobedkina.pages.PracticeFormPage;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
 import org.junit.jupiter.api.Test;
 
-
+@Feature("Practice form")
+@Owner("Daria Obedkina")
 public class PracticeFormTests extends TestBase {
-
 
     @Test
     void fillFormTest() {
