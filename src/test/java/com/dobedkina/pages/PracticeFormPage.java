@@ -2,6 +2,7 @@ package com.dobedkina.pages;
 
 import com.codeborne.selenide.Condition;
 import com.dobedkina.pages.components.Calendar;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -17,46 +18,55 @@ public class PracticeFormPage extends Calendar {
         $(".practice-form-wrapper").shouldHave(Condition.text(FORM_TITLE));
     }
 
-    //Заполнение формы
+    @Step("Ввести имя")
     public void setFirstName(String firstName) {
         $("#firstName").setValue(firstName);
     }
 
+    @Step("Ввести фамилию")
     public void setLastName(String lastName) {
         $("#lastName").setValue(lastName);
     }
 
+    @Step("Ввести email")
     public void setEmail(String email) {
         $("#userEmail").setValue(email);
     }
 
+    @Step("Выбрать пол")
     public void selectGender(String gender) {
         $("#genterWrapper").$(byText(gender)).click();
     }
 
+    @Step("Ввести телефон")
     public void setPhone(String phone) {
         $("#userNumber").setValue(phone);
     }
 
+    @Step("Ввести предметы")
     public void setSubjects(String subject1, String subject2) {
         $("#subjectsInput").setValue(subject1).pressEnter();
         $("#subjectsInput").setValue(subject2).pressEnter();
     }
 
+    @Step("Выбрать хобби")
     public void selectHobbies(String hobby1, String hobby2, String hobby3) {
         $("#hobbiesWrapper").$(byText(hobby1)).click();
         $("#hobbiesWrapper").$(byText(hobby2)).click();
         $("#hobbiesWrapper").$(byText(hobby3)).click();
     }
 
+    @Step("Загрузить картинку")
     public void selectPicture(String picture) {
         $("#uploadPicture").uploadFromClasspath(picture);
     }
 
+    @Step("Ввести текущий адрес")
     public void setAddress(String address) {
         $("#currentAddress").setValue(address);
     }
 
+    @Step("Выбрать штат и город")
     public void selectStateAndCity(String state, String city) {
         $("#state").click();
         $("#state").$(byText(state)).click();
@@ -64,15 +74,17 @@ public class PracticeFormPage extends Calendar {
         $("#city").$(byText(city)).click();
     }
 
+    @Step("Сохранить форму")
     public void submitForm() {
         $("#submit").click();
     }
 
-    //Проверка заполненной формы
+    @Step("Форма отображается на странице")
     public void checkIfFormIsOpened() {
         $("#example-modal-sizes-title-lg").shouldHave(Condition.text(SUBMITTED_FORM_TITLE));
     }
 
+    @Step("Поля на форме заполнены введенными ранее значениями")
     public void checkFormFields(String firstName, String lastName, String email, String gender, String phone,
                                 String day, String month, String year, String subject1, String subject2,
                                 String hobby1, String hobby2, String hobby3, String picture, String address,
