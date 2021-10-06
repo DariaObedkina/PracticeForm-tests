@@ -58,7 +58,7 @@ public class PracticeFormPage extends Calendar {
 
     @Step("Загрузить картинку")
     public void selectPicture(String picture) {
-        $("#uploadPicture").uploadFromClasspath(picture);
+        $("#uploadPicture").uploadFromClasspath("img/" + picture);
     }
 
     @Step("Ввести текущий адрес")
