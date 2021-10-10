@@ -23,7 +23,7 @@ public class TestBase {
 
         Configuration.browserCapabilities = capabilities;
         Configuration.startMaximized = true;
-        Configuration.remote = String.format("https://%s:%s", credentials.login(), credentials.password()) + System.getProperty("remoteBrowserUrl");
+        Configuration.remote = String.format("https://%s:%s@", credentials.login(), credentials.password()) + System.getProperty("remoteBrowserUrl");
         browser = System.getProperty("browser", "chrome");
         browserVersion = System.getProperty("browserVersion", "91.0");
 
