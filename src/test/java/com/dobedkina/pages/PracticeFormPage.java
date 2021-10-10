@@ -13,6 +13,7 @@ public class PracticeFormPage extends Calendar {
     private final String SUBMITTED_FORM_TITLE = "Thanks for submitting the form";
     public Calendar calendar = new Calendar();
 
+    @Step("Открыть страницу с формой")
     public void openPage() {
         open(PAGE_LINK);
         $(".practice-form-wrapper").shouldHave(Condition.text(FORM_TITLE));
