@@ -14,17 +14,16 @@ import static com.codeborne.selenide.Configuration.browserVersion;
 
 public class TestBase {
     @BeforeAll
-    static void setUp() {
+    public static void setUp() {
         CredentialsConfig credentials =
                 ConfigFactory.create(CredentialsConfig.class);
-
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
 
         Configuration.browserCapabilities = capabilities;
         Configuration.startMaximized = true;
-        Configuration.remote = System.getProperty("remoteBrowserUrl", "https://selenoid.autotests.cloud/wd/hub/");
+        Configuration.remote = String.format("https://%s:%s", credentials.login(), credentials.password()) + System.getProperty("remoteBrowserUrl");
         browser = System.getProperty("browser", "chrome");
         browserVersion = System.getProperty("browserVersion", "91.0");
 
