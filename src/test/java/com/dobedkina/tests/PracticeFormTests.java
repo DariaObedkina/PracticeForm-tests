@@ -3,6 +3,7 @@ package com.dobedkina.tests;
 import com.dobedkina.pages.PracticeFormPage;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 @Feature("Practice form")
@@ -10,6 +11,7 @@ import org.junit.jupiter.api.Test;
 public class PracticeFormTests extends TestBase {
 
     @Test
+    @Tag("practice_form")
     void fillFormTest() {
         PracticeFormPage practiceFormPage = new PracticeFormPage();
         TestData testData = new TestData();
